@@ -15,11 +15,7 @@ switch ( $route->getAction() ) {
             ORDER BY name";
 
     $result = $mysql->query($sql);
-
-    while ($row = $result->fetch_assoc()) {
-      print_r($row);
-      exit;
-    }
+    $products = $result->fetch_all(MYSQLI_ASSOC);
 
         include( APP_VIEW .'/product/productSubNav.php' );
         include( APP_VIEW .'/product/homeView.php' );
